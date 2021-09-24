@@ -1,0 +1,29 @@
+<p>listado de heroes</p>
+
+<button (click)="borrarHeroe()">borrar Heroe</button>
+
+<div *ngIf="heroeborrado.length !== 0; else noBorrado"> <!-- Si no se cumple, pedimos que nos muetsre el template noBorrado que llamamos debajo-->
+    <h3>
+        Heroe borrado: <small> {{ heroeborrado }} </small>
+    </h3>
+</div>
+
+<ng-template #noBorrado>  <!-- Llamada al template que hacemos referencia en el else de mas arriba-->
+    <h3>
+        No ha borrado nada
+    </h3>
+</ng-template>
+
+
+
+
+<ul>
+    <li *ngFor="let heroe of heroes">
+        {{heroe}}
+    </li>
+</ul>
+
+<!-- Otras ,opciones de ngIf para nuestro caso :
+    
+    *ngIf="heroeborrado"
+    *ngIf="heroeborrado !== '' "-->
